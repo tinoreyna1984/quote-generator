@@ -1,38 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Random quote generator
 
-## Getting Started
+Solution for a challenge from  [Devchallenges.io](http://devchallenges.io).
 
-First, run the development server:
+[Demo](https://quote-generator-tinoreyna1984.vercel.app/) | 
+[Solution](https://github.com/tinoreyna1984/quote-generator) | 
+[Challenge](https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8)
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Built With](#built-with)
+- [Features](#features)
+- [How to use](#how-to-use)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+
+## Overview
+
+![screenshot](./public/screenshot.png)
+
+This is a quote generator. The following stories are fulfilled:
+* You can see a random quote.
+* You can generate a random quote.
+* A quote goes with its genre.
+* If you click on the author, you can see all of his quotes. Initially limited to 10, but there is a button below the list to fetch more quotes until reaching the total quotes from the author.
+* Improvement TODO: after fetching, render partially any fetched quotes without loading again the list (the API paginates the quotes list).
+
+### Built With
+
+- [Next.js](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Redux Toolkit](https://redux.js.org/)
+
+## Features
+
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8) was to build an application to complete the given user stories.
+
+## How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Clone this repository
+$ git clone https://github.com/tinoreyna1984/tino-tasker
+
+# Install dependencies
+$ npm i
+
+# Run the app
+$ npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Acknowledgements
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [Node.js](https://nodejs.org/)
+- [Marked - a markdown parser](https://github.com/chjj/marked)
+- My teachers.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Contact
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Website [TinexLab](https://tinexlab.vercel.app/)
+- GitHub [@tinoreyna1984](https://github.com/tinoreyna1984)
+- Twitter [@tinoreyna1984](https://twitter.com/tinoreyna1984)
