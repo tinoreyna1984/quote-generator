@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
+import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import { randomQuoteObject } from '../helpers/randomQuoteObject'
 import Quote from '../components/quote'
@@ -18,7 +18,7 @@ export default function Home() {
       let rq = await randomQuoteObject();
       return rq;
     }
-    onLoadQuote().then(res => setQuote(res)).then(() => setLoading(false));
+    onLoadQuote().then(res => setQuote(res)).then(() => setLoading(false)).catch(e => console.log("Oops! Something happened: ", e));
   }, [])
 
   const handleClick = async () => {
@@ -40,18 +40,18 @@ export default function Home() {
       </Head>
       {
         loading ?
-        (<div className='flex h-screen w-full justify-center items-center'>
-          <div className='flex flex-col items-start my-3 mx-3 md:mx-4 lg:mx-5'>
-            <h1 className='text-2xl font-black drop-shadow-xl text-center'>Loading...</h1>
-          </div>
-        </div>) :
-        (<div className='flex h-screen w-full justify-center items-center'>
-          <div className='flex flex-col items-start my-3 mx-3 md:mx-4 lg:mx-5'>
-            <h1 className='text-2xl font-black drop-shadow-xl'>Random Quote Generator</h1>
-            <Quote text={quoteText} author={quoteAuthor} genre={quoteGenre} />
-            <Button text="Generate another random quote" handleClick={() => handleClick()} />
-          </div>
-        </div>)
+          (<div className='flex h-screen w-full justify-center items-center'>
+            <div className='flex flex-col items-start my-3 mx-3 md:mx-4 lg:mx-5'>
+              <h1 className='text-2xl font-black drop-shadow-xl text-center'>Loading...</h1>
+            </div>
+          </div>) :
+          (<div className='flex h-screen w-full justify-center items-center'>
+            <div className='flex flex-col items-start my-3 mx-3 md:mx-4 lg:mx-5'>
+              <h1 className='text-2xl font-black drop-shadow-xl'>Random Quote Generator</h1>
+              <Quote text={quoteText} author={quoteAuthor} genre={quoteGenre} />
+              <Button text="Generate another random quote" handleClick={() => handleClick()} />
+            </div>
+          </div>)
       }
     </>
   )
