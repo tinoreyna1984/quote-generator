@@ -11,7 +11,7 @@ export const quotesSlice = createSlice({
     },
     reducers: {
         initState: (state, action) => {
-            const {data, currentPage, nextPage, totalQuotes} = action.payload;
+            const { data, currentPage, nextPage, totalQuotes } = action.payload;
             state.quotes = data;
             state.currentPage = currentPage;
             state.nextPage = nextPage;
@@ -24,8 +24,13 @@ export const quotesSlice = createSlice({
             state.currentPage = state.currentPage + 1;
         },
         addMoreQuotes: (state, action) => {
-            const {data, currentPage, totalQuotes} = action.payload
-            state.quotes = state.quotes.concat(data);
+            const { data, currentPage, totalQuotes } = action.payload
+            let tmpQuotes = state.quotes.concat(data);
+            state.quotes = tmpQuotes.filter(
+                (obj, index) =>
+                    tmpQuotes.findIndex((item) => item._id === obj._id) === index
+            );
+            console.log(state.quotes)
             state.currentPage = currentPage;
             state.totalQuotes = totalQuotes;
         }
@@ -37,12 +42,12 @@ export const startLoad = (authorSearch, currentPage) => {
     return async (dispatch) => {
         dispatch(setLoadingState(true))
         let fetchQuotes = await fetch(`https://quote-garden.onrender.com/api/v3/quotes?page=${currentPage}&author=${authorSearch}`);
-        let {data, pagination: {nextPage}, totalQuotes} = await fetchQuotes.json()
+        let { data, pagination: { nextPage }, totalQuotes } = await fetchQuotes.json()
         dispatch(setLoadingState(false))
-        if(currentPage === 1) // first load
-            dispatch( initState( {data, currentPage, nextPage, totalQuotes} ) );
+        if (currentPage === 1) // first load
+            dispatch(initState({ data, currentPage, nextPage, totalQuotes }));
         else
-            dispatch( addMoreQuotes({data, currentPage, totalQuotes}))
+            dispatch(addMoreQuotes({ data, currentPage, totalQuotes }))
     }
 }
 

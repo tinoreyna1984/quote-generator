@@ -11,7 +11,7 @@ export default function Author() {
     const router = useRouter()
     const { authorSearch } = router.query
 
-    const {quotes, currentPage, nextPage, totalQuotes, loading} = useSelector(state => state.quotes)
+    const { quotes, currentPage, nextPage, totalQuotes, loading } = useSelector(state => state.quotes)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export default function Author() {
     console.log("total quotes: ", totalQuotes) */
 
     const handleLoadMore = () => {
-        if(nextPage === null || quotes.length >= totalQuotes) return;
+        if (nextPage === null || quotes.length >= totalQuotes) return;
         dispatch(changePage())
     }
 
@@ -41,7 +41,36 @@ export default function Author() {
                     <p className='my-5'>More quotes from {authorSearch}:</p>
                     {
                         loading ?
-                            (<h2 className='text-xl drop-shadow-xl text-center my-6 mx-8'>Loading...</h2>) :
+                            (<>
+                                <div className='flex flex-col items-end my-6 mx-8'>
+                                    <div className='text-start italic border-r-4'>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col items-end my-6 mx-8'>
+                                    <div className='text-start italic border-r-4'>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col items-end my-6 mx-8'>
+                                    <div className='text-start italic border-r-4'>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col items-end my-6 mx-8'>
+                                    <div className='text-start italic border-r-4'>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                        <div className="h-4 w-[300px] md:w-[450px] lg:w-[600px] mt-2 rounded-md bg-gray-300 "></div>
+                                    </div>
+                                </div>
+                            </>) :
                             (quotes?.map(
                                 ele =>
                                 (<div key={ele._id} className='flex flex-col items-end my-6 mx-8'>
