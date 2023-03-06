@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage, startLoad } from '../../redux/quotesSlice';
+import ScrollToTop from '../../components/scroll-to-top';
 
 export default function Author() {
 
@@ -72,6 +73,7 @@ export default function Author() {
                             Back to home
                         </Link>
                     </div>
+                    <ScrollToTop />
                 </div>
             </div>
         </>
